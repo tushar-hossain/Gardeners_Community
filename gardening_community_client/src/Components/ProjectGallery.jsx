@@ -24,7 +24,7 @@ const ProjectGallery = () => {
         <div>
           <div>
             <img
-              className="mx-auto"
+              className="mx-auto rounded-lg"
               src={projectImg1}
               alt="project gallery image"
             />
@@ -39,9 +39,9 @@ const ProjectGallery = () => {
         <div>
           <div>
             <img
-              className="mx-auto"
+              className="mx-auto rounded-lg"
               src={projectImg2}
-              alt="project gallery image"
+              alt="project gallery image "
             />
             <div className="mt-5 text-center">
               <h2 className="text-2xl text-white">Parking Cleaning</h2>
@@ -53,7 +53,7 @@ const ProjectGallery = () => {
         <div>
           <div>
             <img
-              className="mx-auto"
+              className="mx-auto rounded-lg"
               src={projectImg3}
               alt="project gallery image"
             />
@@ -67,7 +67,7 @@ const ProjectGallery = () => {
         <div>
           <div>
             <img
-              className="mx-auto"
+              className="mx-auto rounded-lg"
               src={projectImg4}
               alt="project gallery image"
             />

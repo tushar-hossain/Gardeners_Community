@@ -1,8 +1,8 @@
 import React, { use, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router";
-import gradeningLogo from "../assets/gardening-logo.png";
-import { AuthContext } from "../AuthContext/AuthContext";
+import { AuthContext } from "../../AuthContext/AuthContext";
 import { toast } from "react-toastify";
+import GardenersLogo from "./GardenersLogo/GardenersLogo";
 
 const Navbar = () => {
   const { users, logOutUser } = use(AuthContext);
@@ -44,16 +44,19 @@ const Navbar = () => {
         <NavLink to="/browse-tips">Browse Tips</NavLink>
       </li>
       <li>
-        <NavLink to="/share-garden">Share a Garden Tip</NavLink>
+        <NavLink to="/about-us">About us</NavLink>
       </li>
       <li>
-        <NavLink to="/my-tips">My Tips</NavLink>
+        <NavLink to="/contact">Contact Us</NavLink>
+      </li>
+      <li>
+        <NavLink to="/support">Support</NavLink>
       </li>
     </>
   );
   return (
-    <div className="bg-[#123316]">
-      <div className="w-11/12 mx-auto flex items-center p-0 py-6 border-b-2 border-base-300 text-white">
+    <div className="bg-[#123316] sticky top-0 z-50">
+      <div className="w-11/12 mx-auto flex items-center p-0 py-6 text-white">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -80,14 +83,9 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <Link to="/">
-            <div className="flex  items-center">
-              <img className="w-25" src={gradeningLogo} alt="brand logo" />
-              <h1 className="text-xl font-bold hidden md:block">
-                Gardening Community
-              </h1>
-            </div>
-          </Link>
+          <div className="flex  items-center">
+            <GardenersLogo />
+          </div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 ">{links}</ul>
@@ -110,9 +108,13 @@ const Navbar = () => {
                   tabIndex={0}
                   className="menu menu-sm dropdown-content bg-gray-500 dark:bg-black rounded-box z-1 mt-3 w-52 p-2 shadow"
                 >
-                  <li>
-                    <p>{users.displayName}</p>
-                  </li>
+                  {users && (
+                    <>
+                      <li>
+                        <NavLink to="/dashboard">Dashboard</NavLink>
+                      </li>
+                    </>
+                  )}
                   <li>
                     <button onClick={handelLogOut}>Logout</button>
                   </li>

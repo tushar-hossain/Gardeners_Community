@@ -1,19 +1,25 @@
 import { createBrowserRouter } from "react-router";
 import MainLayouts from "../layouts/MainLayouts";
-import Register from "../Pages/Register";
-import Home from "../Pages/Home";
-import Login from "../Pages/Login";
-import ResetPassword from "../Pages/ResetPassword";
-import ExploreGardeners from "../Pages/ExploreGardeners";
-import BrowseTips from "../Pages/BrowseTips ";
-import ShareGardenTip from "../Pages/ShareGardenTip";
-import MyTips from "../Pages/MyTips";
+import Register from "../Pages/shared/Register/Register";
+import Home from "../Pages/Home/Home";
+import ExploreGardeners from "../Pages/ExploreGardeners/ExploreGardeners";
+import BrowseTips from "../Pages/BrowseTips/BrowseTips ";
+import ShareGardenTip from "../Pages/Dashboard/ShareGardenTip/ShareGardenTip";
 import Loading from "../components/Loading";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
-import TipDetails from "../Pages/TipDetails";
-import UpdateTips from "../Pages/UpdateTips";
-import ErrorPage from "../Pages/ErrorPage";
-import AboutUs from "../Pages/AboutUs";
+import TipDetails from "../Pages/BrowseTips/TipDetails";
+import ErrorPage from "../Pages/Error/ErrorPage";
+import AboutUs from "../Pages/AboutUs/AboutUs";
+import DashboardLayouts from "../layouts/DashboardLayouts";
+import MyTips from "../Pages/Dashboard/MyTips/MyTips";
+import Login from "../Pages/Login/Login";
+import ResetPassword from "../Pages/ResetPassword/ResetPassword";
+import UpdateTips from "../Pages/Dashboard/UpdateTips/UpdateTips";
+import AllGardeners from "../Pages/Dashboard/AllGardeners/AllGardeners";
+import AddGardener from "../Pages/Dashboard/AddGardener/AddGardener";
+import Contact from "../Pages/Contact/Contact";
+import Support from "../Pages/Support/Support";
+import DashboardHome from "../Pages/Dashboard/Home/DashboardHome";
 
 export const router = createBrowserRouter([
   {
@@ -34,11 +40,11 @@ export const router = createBrowserRouter([
       {
         path: "explore-gardeners",
         Component: ExploreGardeners,
-        loader: () =>
-          fetch(
-            "https://gardening-community-server-gamma.vercel.app/all-gardeners"
-          ),
-        hydrateFallbackElement: <Loading />,
+        // loader: () =>
+        //   fetch(
+        //     "https://gardening-community-server-gamma.vercel.app/all-gardeners"
+        //   ),
+        // hydrateFallbackElement: <Loading />,
       },
 
       {
@@ -58,21 +64,31 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      { path: "login", Component: Login },
 
+      { path: "registration", Component: Register },
+      { path: "about-us", Component: AboutUs },
+      { path: "contact", Component: Contact },
+      { path: "support", Component: Support },
+    ],
+  },
+  { path: "reset-password", Component: ResetPassword },
+
+  // dashboard
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <DashboardLayouts />
+      </PrivateRoute>
+    ),
+    children: [
+      { path: "", Component: DashboardHome },
       {
         path: "share-garden",
         element: (
           <PrivateRoute>
             <ShareGardenTip />
-          </PrivateRoute>
-        ),
-      },
-
-      {
-        path: "my-tips",
-        element: (
-          <PrivateRoute>
-            <MyTips />
           </PrivateRoute>
         ),
       },
@@ -89,12 +105,35 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-
-      { path: "login", Component: Login },
-
-      { path: "registration", Component: Register },
-      { path: "about-us", Component: AboutUs },
+      {
+        path: "my-tips",
+        element: (
+          <PrivateRoute>
+            <MyTips />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "all-gardeners",
+        element: (
+          <PrivateRoute>
+            <AllGardeners />
+          </PrivateRoute>
+        ),
+        loader: () =>
+          fetch(
+            "https://gardening-community-server-gamma.vercel.app/all-gardeners"
+          ),
+        hydrateFallbackElement: <Loading />,
+      },
+      {
+        path: "add-gardener",
+        element: (
+          <PrivateRoute>
+            <AddGardener />
+          </PrivateRoute>
+        ),
+      },
     ],
   },
-  { path: "reset-password", Component: ResetPassword },
 ]);

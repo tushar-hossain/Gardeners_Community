@@ -13,6 +13,7 @@
 * {
   font-family: "Poppins", sans-serif;
 }
-a.active {
-  color: #79b823;
+
+body {
+  background-color: gainsboro;
 }

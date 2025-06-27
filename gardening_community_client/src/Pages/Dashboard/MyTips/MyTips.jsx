@@ -1,9 +1,10 @@
 import React, { use, useEffect, useState } from "react";
-import { AuthContext } from "../AuthContext/AuthContext";
+
 import { FaPen } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../../AuthContext/AuthContext";
 
 const MyTips = () => {
   const { users } = use(AuthContext);
@@ -52,15 +53,14 @@ const MyTips = () => {
   };
 
   return (
-    <div className="py-12 w-11/12 mx-auto">
+    <div className="bg-secondary text-gray-400 py-5 m-5 rounded-lg">
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
           <thead>
-            <tr>
+            <tr className="text-gray-100">
               <th></th>
               <th>Name</th>
-              <th>Email</th>
               <th>Title</th>
               <th>Plant Type</th>
               <th>Difficulty Level</th>
@@ -79,7 +79,6 @@ const MyTips = () => {
                 availability,
                 title,
                 plant,
-                email,
                 name,
                 photo,
               } = tips || {};
@@ -96,7 +95,6 @@ const MyTips = () => {
                     </div>
                   </td>
                   <td>{name}</td>
-                  <td>{email}</td>
                   <td>{title}</td>
                   <td>{plant}</td>
                   <td>{selectLevel}</td>
@@ -104,7 +102,7 @@ const MyTips = () => {
                   <td>{availability}</td>
                   <td className="flex gap-2">
                     <Link
-                      to={`/update-tips/${_id}`}
+                      to={`/dashboard/update-tips/${_id}`}
                       className="btn bg-primary text-white"
                     >
                       <FaPen size={20} />

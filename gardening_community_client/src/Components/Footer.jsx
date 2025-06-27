@@ -26,14 +26,22 @@ const Footer = () => {
           <NavLink to="/about-us">About us</NavLink>
           <NavLink to="/browse-tips">Browse Tips</NavLink>
           <NavLink to="/explore-gardeners">Explore Gardeners</NavLink>
-          <NavLink to="/my-tips">My Tips</NavLink>
+          <NavLink to="/contact">Contact Us</NavLink>
         </nav>
         <nav>
           <h6 className="footer-title">Social</h6>
           <div className="grid grid-flow-col gap-4">
-            <FaFacebookSquare className="cursor-pointer" size={30} />
-            <FaYoutube className="cursor-pointer" size={30} />
-            <FaTwitter className="cursor-pointer" size={30} />
+            <a href="https://www.facebook.com/" target="_blank">
+              <FaFacebookSquare className="cursor-pointer" size={30} />
+            </a>
+
+            <a href="https://www.youtube.com/" target="_blank">
+              <FaYoutube className="cursor-pointer" size={30} />
+            </a>
+            <a href="https://x.com/" target="_blank">
+              {" "}
+              <FaTwitter className="cursor-pointer" size={30} />
+            </a>
           </div>
         </nav>
       </footer>

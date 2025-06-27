@@ -1,6 +1,7 @@
 import React, { use } from "react";
-import { AuthContext } from "../AuthContext/AuthContext";
+
 import { toast } from "react-toastify";
+import { AuthContext } from "../../AuthContext/AuthContext";
 
 const ResetPassword = () => {
   const { resetPassword } = use(AuthContext);

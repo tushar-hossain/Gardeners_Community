@@ -1,8 +1,8 @@
 import React, { use, useState } from "react";
 import { useLoaderData, useParams } from "react-router";
-import { AuthContext } from "../AuthContext/AuthContext";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
+import { AuthContext } from "../../../AuthContext/AuthContext";
 
 const UpdateTips = () => {
   const { id } = useParams();
@@ -56,11 +56,11 @@ const UpdateTips = () => {
   };
 
   return (
-    <div className="py-12 w-11/12 mx-auto">
+    <div className="px-5">
       <div>
         <form
           onSubmit={handelUpdate}
-          className="bg-base-300 py-8 px-15 rounded-lg mt-5"
+          className="bg-secondary py-8 px-15 rounded-lg mt-5"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {/* title */}
@@ -73,7 +73,7 @@ const UpdateTips = () => {
                 defaultValue={tips.title}
                 name="title"
                 placeholder="Enter title"
-                className="w-full rounded-md p-2 bg-base-100"
+                className="w-full text-black rounded-md p-2 bg-base-100"
               />
             </div>
             {/* Plant Type */}
@@ -86,7 +86,7 @@ const UpdateTips = () => {
                 defaultValue={tips.plant}
                 name="plant"
                 placeholder="Enter plant"
-                className="w-full rounded-md p-2 bg-base-100"
+                className="w-full text-black rounded-md p-2 bg-base-100"
               />
             </div>
             {/*  Difficulty Level */}
@@ -97,7 +97,7 @@ const UpdateTips = () => {
               <select
                 onChange={(e) => setSelectLevel(e.target.value)}
                 defaultValue={tips.selectLevel}
-                className="select w-full rounded-md p-2 bg-base-100"
+                className="select w-full text-black rounded-md p-2 bg-base-100"
               >
                 <option disabled={true} selected>
                   Difficulty Level
@@ -117,7 +117,7 @@ const UpdateTips = () => {
                 defaultValue={tips.description}
                 name="description"
                 placeholder="Enter description"
-                className="w-full rounded-md p-2 bg-base-100"
+                className="w-full text-black rounded-md p-2 bg-base-100"
               />
             </div>
 
@@ -129,7 +129,7 @@ const UpdateTips = () => {
               <select
                 onChange={(e) => setCategory(e.target.value)}
                 defaultValue={tips.category}
-                className="select w-full rounded-md p-2 bg-base-100"
+                className="select w-full text-black rounded-md p-2 bg-base-100"
               >
                 <option disabled={true} selected>
                   Select Category
@@ -147,7 +147,7 @@ const UpdateTips = () => {
               <select
                 onChange={(e) => setAvailability(e.target.value)}
                 defaultValue={tips.availability}
-                className="select w-full rounded-md p-2 bg-base-100"
+                className="select w-full text-black rounded-md p-2 bg-base-100"
               >
                 <option disabled={true} selected>
                   Availability
@@ -168,7 +168,7 @@ const UpdateTips = () => {
                 readOnly
                 name="email"
                 placeholder="Enter email"
-                className="w-full rounded-md p-2 bg-base-100"
+                className="w-full text-black rounded-md p-2 bg-base-100"
               />
             </div>
 
@@ -183,7 +183,7 @@ const UpdateTips = () => {
                 readOnly
                 name="name"
                 placeholder="Enter name"
-                className="w-full rounded-md p-2 bg-base-100"
+                className="w-full text-black rounded-md p-2 bg-base-100"
               />
             </div>
           </div>
@@ -197,11 +197,11 @@ const UpdateTips = () => {
               defaultValue={tips.photo}
               name="photo"
               placeholder="Enter photo"
-              className="w-full rounded-md p-2 bg-base-100"
+              className="w-full text-black rounded-md p-2 bg-base-100"
             />
           </div>
           <input
-            className="p-2 dark:bg-primary rounded-lg w-full cursor-pointer mt-5"
+            className="p-2 dark:bg-primary rounded-lg w-full text-black cursor-pointer mt-5"
             type="submit"
             value="Update Tips"
           />

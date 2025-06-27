@@ -1,12 +1,13 @@
 import React, { use } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { toast } from "react-toastify";
-import { AuthContext } from "../AuthContext/AuthContext";
+import { AuthContext } from "../../../AuthContext/AuthContext";
 
-const Registration = () => {
-  const { setUsers, createUser, createGoogleUser, updateUserProfile } =
+const Register = () => {
+  const { setUsers, createUser, updateUserProfile, createGoogleUser } =
     use(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handelRegistration = (e) => {
     e.preventDefault();
@@ -35,19 +36,19 @@ const Registration = () => {
       );
     }
 
-    // create users
+    //  create users
     createUser(email, password)
       .then((result) => {
-        //
         const userObj = {
           email,
           name,
           photo,
           lastSignInTime: result.user?.metadata?.lastSignInTime,
+          role: "users",
         };
 
         // db send user information
-        fetch("http://localhost:3000/users", {
+        fetch("https://gardening-community-server-gamma.vercel.app/users", {
           method: "POST",
           headers: {
             "Content-type": "application/json",
@@ -57,7 +58,7 @@ const Registration = () => {
           .then((res) => res.json())
           .then((data) => {
             if (data.insertedId) {
-              // user profile update
+              // update users profile
               updateUserProfile({
                 displayName: name,
                 photoURL: photo,
@@ -65,7 +66,7 @@ const Registration = () => {
                 .then(() => {
                   toast.success("Registration successfully");
                   setUsers(result.user);
-                  navigate("/");
+                  navigate(location.state || "/");
                 })
                 .catch(() => {
                   toast.error("Registration failed");
@@ -83,7 +84,7 @@ const Registration = () => {
       .then((result) => {
         toast.success("Registration successfully");
         setUsers(result.user);
-        navigate("/");
+        navigate(location.state || "/");
       })
       .catch(() => {
         toast.error("Registration failed");
@@ -108,7 +109,6 @@ const Registration = () => {
               className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
             />
           </div>
-
           {/* photo */}
           <div className="space-y-1 text-sm">
             <label htmlFor="photo" className="block dark:text-white">
@@ -125,13 +125,13 @@ const Registration = () => {
 
           {/* email */}
           <div className="space-y-1 text-sm">
-            <label htmlFor="username" className="block dark:text-white">
+            <label htmlFor="email" className="block dark:text-white">
               Email
             </label>
             <input
               type="email"
               name="email"
-              id="username"
+              id="email"
               placeholder="Enter E-mail"
               className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
             />
@@ -149,7 +149,10 @@ const Registration = () => {
               className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
             />
           </div>
-          <button className="block w-full p-3 text-center rounded-sm dark:text-white dark:bg-violet-600 cursor-pointer">
+          <button
+            type="submit"
+            className="block w-full p-3 text-center rounded-sm dark:text-white dark:bg-violet-600 cursor-pointer"
+          >
             Registration
           </button>
         </form>
@@ -207,4 +210,4 @@ const Registration = () => {
   );
 };
 
-export default Registration;
+export default Register;

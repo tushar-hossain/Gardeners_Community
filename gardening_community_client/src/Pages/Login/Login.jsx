@@ -1,7 +1,8 @@
 import React, { use } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
-import { AuthContext } from "../AuthContext/AuthContext";
+
 import { toast } from "react-toastify";
+import { AuthContext } from "../../AuthContext/AuthContext";
 
 const Login = () => {
   const { loginUser, setUsers, createGoogleUser } = use(AuthContext);

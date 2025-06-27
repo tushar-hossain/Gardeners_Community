@@ -12,7 +12,7 @@ const ErrorPage = () => {
         alt="error image"
       />
       <p className="text-xl md:text-2xl font-bold">Page {error.statusText}</p>
-          <h2 className="text-xl font-bold">{ error.error.message}</h2>
+      <h2 className="text-xl font-bold">{error.error.message}</h2>
     </div>
   );
 };
