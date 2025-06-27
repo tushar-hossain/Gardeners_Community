@@ -28,12 +28,13 @@ const gardenersDB = client.db("gardener").collection("gardeners");
 const tipsDB = client.db("gardener").collection("tips");
 const usersDB = client.db("gardener").collection("users");
 const gardenerCollection = client.db("gardener").collection("explores");
+const eventsCollection = client.db("gardener").collection("events");
 
 async function run() {
   try {
     // await client.connect();
 
-    //   get 6 active gardeners
+    // get 6 active gardeners
     app.get("/gardeners", async (req, res) => {
       const query = { status: "active" };
       const result = await gardenersDB.find(query).toArray();
@@ -46,9 +47,16 @@ async function run() {
       res.send(result);
     });
 
+    // one gardeners
+    app.get("/gardeners/:id", async (req, res) => {
+      const query = { _id: new ObjectId(req.params.id) };
+      const result = await gardenersDB.findOne(query);
+      res.send(result);
+    });
+
     // all tips gardeners
     app.get("/tips/like", async (req, res) => {
-      const result = tipsDB.find().sort({ like: -1 }).limit(6);
+      const result = tipsDB.find().sort({ like: -1 }).limit(8);
       res.send(await result.toArray());
     });
 
@@ -69,7 +77,7 @@ async function run() {
     app.post("/explore-gardeners", async (req, res) => {
       try {
         const gardener = req.body;
-        
+
         const result = await gardenerCollection.insertOne(gardener);
         res.send(result);
       } catch (error) {
@@ -141,6 +149,17 @@ async function run() {
     app.post("/users", async (req, res) => {
       const doc = req.body;
       const result = await usersDB.insertOne(doc);
+      res.send(result);
+    });
+
+    app.get("/events", async (req, res) => {
+      const result = await eventsCollection.find().toArray();
+      res.send(result);
+    });
+    app.get("/events/:id", async (req, res) => {
+      const result = await eventsCollection.findOne({
+        _id: new ObjectId(req.params.id),
+      });
       res.send(result);
     });
 
