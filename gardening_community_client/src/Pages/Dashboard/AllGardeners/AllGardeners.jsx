@@ -1,6 +1,6 @@
 import React from "react";
 import { Fade } from "react-awesome-reveal";
-import { useLoaderData } from "react-router";
+import { Link, useLoaderData } from "react-router";
 
 const AllGardeners = () => {
   const data = useLoaderData();
@@ -8,18 +8,7 @@ const AllGardeners = () => {
     <div className="w-11/12 mx-auto py-5">
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
         {data.map((gardener) => {
-          const {
-            _id,
-            name,
-            age,
-            gender,
-            status,
-            experience,
-            image,
-            location,
-            totalTips,
-            description,
-          } = gardener || {};
+          const { _id, name, image, description } = gardener || {};
 
           return (
             <div
@@ -38,7 +27,9 @@ const AllGardeners = () => {
               </div>
 
               <div className="mt-2 px-2">
-                <button className="btn btn-primary btn-block">Details</button>
+                <Link to={`/dashboard/gardenerDetails/${_id}`}>
+                  <button className="btn btn-primary btn-block">Details</button>
+                </Link>
               </div>
             </div>
           );

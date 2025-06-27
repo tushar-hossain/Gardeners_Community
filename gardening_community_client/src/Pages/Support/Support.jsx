@@ -28,7 +28,7 @@ export default function Support() {
   ];
 
   return (
-    <div className="max-w-5xl mx-auto px-6 py-12">
+    <div className="max-w-5xl mx-auto px-6 py-12 text-black">
       <h2 className="text-3xl font-bold text-center mb-4">Need Support?</h2>
       <p className="text-center text-gray-600 mb-10">
         We’re here to help you grow. Explore the options below to get the

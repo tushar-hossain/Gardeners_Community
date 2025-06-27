@@ -15,8 +15,8 @@ export default function ExploreGardeners() {
   console.log(gardeners);
 
   return (
-    <div className="w-11/12 py-12 mx-auto">
-      <h2 className="text-2xl font-bold mb-4">Explore Gardeners</h2>
+    <div className="w-11/12 py-12 mx-auto text-black">
+      <h2 className="text-2xl  font-bold mb-4">Explore Gardeners</h2>
       <p className="text-gray-600 mb-4">
         Explore gardeners from around the country who share their knowledge,
         tips, and love for plants. Connect, learn, and grow with a thriving

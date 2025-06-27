@@ -143,7 +143,7 @@ const DashboardLayouts = () => {
                   </h2>
                   <span className="flex items-center space-x-1">
                     <Link
-                      to="/profile"
+                      to="/dashboard/userProfile"
                       className="text-xs hover:underline dark:text-gray-600"
                     >
                       View profile

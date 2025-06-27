@@ -1,12 +1,14 @@
+import React from "react";
 import { useEffect, useState } from "react";
-import { Package, Boxes, User2 } from "lucide-react"; // Icon imports
+import { Package, Boxes, User2 } from "lucide-react";
+import Chart from "./BarChart/BarChart";
 
 export default function DashboardOverview() {
   const [stats, setStats] = useState([]);
   const [myTips, setMyTips] = useState([]);
 
   useEffect(() => {
-    // Fetch stats and user (replace with actual data)
+    // Fetch my tips
     fetch(
       "https://gardening-community-server-gamma.vercel.app/email-tips/tusharsu97@gmail.com"
     )
@@ -14,7 +16,8 @@ export default function DashboardOverview() {
       .then((data) => {
         setMyTips(data);
       });
-    // Fetch stats and user (replace with actual data)
+
+    // Fetch all gardeners
     fetch("https://gardening-community-server-gamma.vercel.app/all-gardeners")
       .then((res) => res.json())
       .then((data) => {
@@ -52,15 +55,13 @@ export default function DashboardOverview() {
           </div>
         </div>
       </div>
-
-      <div className="bg-white shadow rounded-xl p-6 text-black m-5">
-        <h3 className="text-xl font-semibold mb-2">Logged-in User</h3>
-        <p>
-          <strong>Name:</strong> {}
+      {/* rechart */}
+      <div className="text-black m-5">
+        <h1 className="text-3xl font-semibold my-3 text-primary">Gardening Tips</h1>
+        <p className="mb-3 text-gray-500">
+          Track how many tips you’ve shared with the community each.
         </p>
-        <p>
-          <strong>Email:</strong> {}
-        </p>
+        <Chart stats={stats} />
       </div>
     </div>
   );

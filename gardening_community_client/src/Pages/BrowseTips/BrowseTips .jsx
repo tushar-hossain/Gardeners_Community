@@ -18,7 +18,7 @@ const BrowseTips = () => {
   }, [data, selectLevel]);
 
   return (
-    <div className="py-12 w-11/12 mx-auto">
+    <div className="py-12 w-11/12 mx-auto text-black">
       <div className="flex items-center gap-5 mb-10">
         <h1 className="text-xl md:text-2xl font-bold">
           Select Difficulty Level:{" "}
@@ -42,12 +42,12 @@ const BrowseTips = () => {
           <thead>
             <tr>
               <th></th>
-              <th>Title</th>
-              <th>Plant Type</th>
-              <th>Difficulty Level</th>
-              <th>Category</th>
-              <th>Availability</th>
-              <th>See More</th>
+              <th className="text-black">Title</th>
+              <th className="text-black">Plant Type</th>
+              <th className="text-black">Difficulty Level</th>
+              <th className="text-black">Category</th>
+              <th className="text-black">Availability</th>
+              <th className="text-black">See More</th>
             </tr>
           </thead>
           <tbody>

@@ -20,6 +20,9 @@ import AddGardener from "../Pages/Dashboard/AddGardener/AddGardener";
 import Contact from "../Pages/Contact/Contact";
 import Support from "../Pages/Support/Support";
 import DashboardHome from "../Pages/Dashboard/Home/DashboardHome";
+import EventDetails from "../Pages/Home/EventDetails";
+import UserProfile from "../Pages/Dashboard/UserProfile/UserProfile";
+import GardenerDetails from "../Pages/Dashboard/GardenerDetails/GardenerDetails";
 
 export const router = createBrowserRouter([
   {
@@ -40,13 +43,16 @@ export const router = createBrowserRouter([
       {
         path: "explore-gardeners",
         Component: ExploreGardeners,
-        // loader: () =>
-        //   fetch(
-        //     "https://gardening-community-server-gamma.vercel.app/all-gardeners"
-        //   ),
-        // hydrateFallbackElement: <Loading />,
       },
-
+      {
+        path: "event/:id",
+        Component: EventDetails,
+        loader: ({ params }) =>
+          fetch(
+            `https://gardening-community-server-gamma.vercel.app/events/${params.id}`
+          ),
+        hydrateFallbackElement: <Loading />,
+      },
       {
         path: "browse-tips",
         Component: BrowseTips,
@@ -133,6 +139,16 @@ export const router = createBrowserRouter([
             <AddGardener />
           </PrivateRoute>
         ),
+      },
+      { path: "userProfile", Component: UserProfile },
+      {
+        path: "gardenerDetails/:id",
+        Component: GardenerDetails,
+        loader: ({ params }) =>
+          fetch(
+            `https://gardening-community-server-gamma.vercel.app/gardeners/${params.id}`
+          ),
+        hydrateFallbackElement: <Loading />,
       },
     ],
   },
