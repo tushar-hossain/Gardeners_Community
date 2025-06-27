@@ -27,6 +27,7 @@ app.get("/", (req, res) => {
 const gardenersDB = client.db("gardener").collection("gardeners");
 const tipsDB = client.db("gardener").collection("tips");
 const usersDB = client.db("gardener").collection("users");
+const gardenerCollection = client.db("gardener").collection("explores");
 
 async function run() {
   try {
@@ -49,6 +50,31 @@ async function run() {
     app.get("/tips/like", async (req, res) => {
       const result = tipsDB.find().sort({ like: -1 }).limit(6);
       res.send(await result.toArray());
+    });
+
+    // explore-gardeners
+    app.get("/explore-gardeners", async (req, res) => {
+      try {
+        const gardeners = await gardenerCollection
+          .find()
+          .sort({ joinedDate: -1 })
+          .toArray();
+        res.send(gardeners);
+      } catch (error) {
+        res.status(500).json({ message: "Failed to fetch gardeners" });
+      }
+    });
+
+    // post explore-gardeners
+    app.post("/explore-gardeners", async (req, res) => {
+      try {
+        const gardener = req.body;
+        
+        const result = await gardenerCollection.insertOne(gardener);
+        res.send(result);
+      } catch (error) {
+        res.status(500).json({ message: "Failed to add gardener" });
+      }
     });
 
     //   public garden tips
