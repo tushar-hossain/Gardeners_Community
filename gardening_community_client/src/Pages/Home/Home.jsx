@@ -109,10 +109,7 @@ const Home = () => {
         </div>
 
         <div className="flex flex-col md:flex-row gap-5 items-center my-10 px-10 py-5 rounded-lg bg-secondary">
-          <p
-            data-aos="fade-right"
-            className="md:text-xl md:leading-10 text-white"
-          >
+          <p data-aos="fade-up" className="md:text-xl md:leading-10 text-white">
             Find your favorite suppliers and gardening influencers. Keep up to
             date with their discounts, content, and seasonal horticulture
             reminders. If you are a business owner, our gardening community
@@ -121,7 +118,7 @@ const Home = () => {
             to help customers find you. Connect with your customers today!
           </p>
           <img
-            data-aos="fade-left"
+            data-aos="fade-down"
             className="w-[400px]"
             src={gardenImg}
             alt="gardeners image"

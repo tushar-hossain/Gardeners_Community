@@ -25,11 +25,11 @@ const Header = ({ event }) => {
             return (
               <div
                 key={events._d}
-                className="border-5 border-primary p-3 rounded-lg"
+                className="md:border-5 md:border-primary p-3 rounded-lg"
               >
-                <div className="h-[25%] md:h-[30%] lg:h-[60%] flex justify-between items-center ">
+                <div className="h-[25%] md:h-[30%] lg:h-[60%] flex items-center md:justify-between">
                   <div className="text-primary space-y-3 text-left px-2 py-2 flex-1">
-                    <h3 className="text-xl md:text-3xl font-bold text-white">
+                    <h3 className="text-xl md:text-2xl md:font-bold text-white">
                       <Typewriter
                         cursor
                         cursorBlinking
