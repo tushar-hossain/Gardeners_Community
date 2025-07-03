@@ -1,5 +1,10 @@
 # 🌱 A Gardening Community & Resource Hub
 
+## 🔍 Project Description
+
+GardenSphere is a dynamic gardening community platform where users can explore gardener profiles, share and discover practical gardening tips, and stay informed with trending advice. Built with modern web technologies, it encourages sustainable gardening through collaborative learning and engagement.
+
+
 ## Live Site: https://gardening-community-5a4c1.web.app/
 
 ## ✨ Key Features
@@ -21,6 +26,4 @@
 - Firebase Authentication
 - Vite
 
-## 🔍 Project Description
 
-GardenSphere is a dynamic gardening community platform where users can explore gardener profiles, share and discover practical gardening tips, and stay informed with trending advice. Built with modern web technologies, it encourages sustainable gardening through collaborative learning and engagement.
