@@ -24,10 +24,10 @@ const Header = ({ event }) => {
           {event.map((events) => {
             return (
               <div
-                key={events._d}
-                className="md:border-5 md:border-primary p-3 rounded-lg"
+                key={events._id}
+                className="md:border-5 md:border-primary p-3 rounded-lg flex items-center justify-center"
               >
-                <div className="h-[25%] md:h-[30%] lg:h-[60%] flex items-center md:justify-between">
+                <div className="flex flex-col-reverse md:flex-row items-center justify-center">
                   <div className="text-primary space-y-3 text-left px-2 py-2 flex-1">
                     <h3 className="text-xl md:text-2xl md:font-bold text-white">
                       <Typewriter
@@ -40,7 +40,7 @@ const Header = ({ event }) => {
                         words={[events.title]}
                       />
                     </h3>
-                    <div className="hidden md:block space-y-3 ">
+                    <div className="space-y-3 ">
                       <p className="text-gray-300 text-sm">
                         {events.description}
                       </p>
@@ -54,7 +54,7 @@ const Header = ({ event }) => {
                     <img
                       src={events.image}
                       alt=""
-                      className="h-[25%] md:h-[30%] lg:h-[60%] rounded-lg"
+                      className="h-52 lg:h-64 mx-auto w-full rounded-lg"
                     />
                   </div>
                 </div>

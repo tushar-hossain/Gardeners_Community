@@ -7,7 +7,7 @@ const GardenersLogo = () => {
       <Link to="/">
         <div className="flex items-center">
           <img className="w-18" src={gradeningLogo} alt="brand logo" />
-          <h1 className="font-bold hidden md:block">Gardening</h1>
+          <h1 className="font-bold hidden md:block">Gardening Community</h1>
         </div>
       </Link>
     </div>
