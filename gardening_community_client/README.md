@@ -1,28 +1,90 @@
-# 🌱 A Gardening Community & Resource Hub
+# 🌿 Gardening Community Frontend
 
-## 🔍 Project Description
-
-GardenSphere is a dynamic gardening community platform where users can explore gardener profiles, share and discover practical gardening tips, and stay informed with trending advice. Built with modern web technologies, it encourages sustainable gardening through collaborative learning and engagement.
+A beautifully crafted frontend for a Gardening Community web application, built using React and styled with Tailwind CSS and DaisyUI. It connects gardening enthusiasts through gardener profiles, upcoming events, and a community-driven interface.
 
 ## Live Site: https://gardening-community-5a4c1.web.app/
 
-## ✨ Key Features
+## ⚙️ Core Features
 
-- 🔍 **Explore Gardeners**: View gardener profiles with status, expertise, age, experience, and total shared tips.
-- 🧑‍🌾 **Active Gardeners**: Shows 6 dynamic gardener profiles marked as “Active” using MongoDB queries.
-- 📚 **Top Trending Tips**: Displays 6 latest gardening tips from all users using MongoDB `limit()`.
-- ✏️ **Share a Garden Tip**: Authenticated users can post a garden tip with fields like title, difficulty, image, and category.
-- 🛡️ **Protected Routes**: User data is read-only during tip submission and secured with auth.
-- 📦 **MongoDB Integration**: Stores gardeners, tips, and user data in separate collections.
-- 🎨 **Responsive Design**: Clean, mobile-friendly UI using React, TailwindCSS, and Lottie animations.
+- 🔐 User Authentication (Login/Signup)
+- 👤 User Profile (Name and Profile Picture)
+- 📅 Upcoming Gardening Events with Full Details
+- 🌱 Gardener Profiles with Experience, Location, and Tips Shared
+- 🔎 Event and Gardener Details with Dynamic Routing
+- 💬 Structured and Scalable Component-Based Architecture
 
-## 🚀 Technologies Used
+---
 
-- React.js
-- React Router
-- Tailwind CSS
-- MongoDB (via backend API)
-- Firebase Authentication
-- Vite
+## 🛠️ Tech Stack
 
+- ⚛️ React.js
+- 🌐 React Router DOM
+- 🎨 Tailwind CSS + DaisyUI
+- 🔐 Firebase Authentication
+- 📦 React Context API
 
+---
+
+## 🔐 Authentication
+
+- Email/Password Login and Google Sign-in via Firebase
+- Authenticated user state managed via React Context
+
+---
+
+## 🌿 Events
+
+- Browse a curated list of upcoming gardening events
+- View full event details including time, host, location, tags, and contact email
+
+---
+
+## 👨‍🌾 Gardeners
+
+- Browse gardener profiles with image, bio, experience, and tips shared
+- Individual details page for each gardener
+
+---
+
+## 📄 Pages
+
+- Home
+- Event Details
+- Gardener Details
+- Login / Register
+- Profile Page
+
+---
+
+## 📖 Environment Setup
+
+Create a `.env` file in the root directory and add the following:
+
+```bash
+VITE_API_BASE_URL=your_backend_api_url
+VITE_FIREBASE_API_KEY=your_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
+```
+
+---
+
+## 🧪 Run Locally
+
+```bash
+git clone https://github.com/tushar-hossain/Gardeners_Community.git
+cd gardening-community-client
+npm install
+npm run dev
+```
+
+---
+
+## ✨ Contribution
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+---
+
+## ✉️ Contact
+
+For any questions or feedback, reach out via email at [tusharsu97@gmail.com](mailto:tusharsu97@gmail.com) or open an issue in this repository.
