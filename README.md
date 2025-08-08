@@ -1,4 +1,4 @@
-# 🌿 Gardening Community Frontend
+# 🌿 Gardening Community
 
 A beautifully crafted frontend for a Gardening Community web application, built using React and styled with Tailwind CSS and DaisyUI. It connects gardening enthusiasts through gardener profiles, upcoming events, and a community-driven interface.
 
